@@ -22,6 +22,13 @@ __published:	// IDE-managed Components
         TTimer *playerOneMoveDown;
         TTimer *playerTwoMoveUp;
         TTimer *playerTwoMoveDown;
+        TLabel *newGameLabel;
+        TButton *newGameButton;
+        TLabel *whoScored;
+        TLabel *score;
+        TLabel *numberOfBounces;
+        TButton *nextRound;
+        TButton *resetGame;
         void __fastcall timer_ballTimer(TObject *Sender);
         void __fastcall playerOneMoveUpTimer(TObject *Sender);
         void __fastcall playerOneMoveDownTimer(TObject *Sender);
@@ -31,6 +38,10 @@ __published:	// IDE-managed Components
         void __fastcall playerTwoMoveDownTimer(TObject *Sender);
         void __fastcall FormKeyDown(TObject *Sender, WORD &Key,
           TShiftState Shift);
+        void __fastcall newGameButtonClick(TObject *Sender);
+        void __fastcall FormCreate(TObject *Sender);
+        void __fastcall nextRoundClick(TObject *Sender);
+        void __fastcall resetGameClick(TObject *Sender);
 private:	// User declarations
 public:		// User declarations
         __fastcall TPingPongByTomasz(TComponent* Owner);
