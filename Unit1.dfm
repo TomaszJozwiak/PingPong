@@ -1,8 +1,8 @@
 object PingPongByTomasz: TPingPongByTomasz
   Left = 192
   Top = 125
-  Width = 1020
-  Height = 573
+  Width = 985
+  Height = 467
   Caption = 'PingPongByTomasz'
   Color = clBtnFace
   UseDockManager = True
@@ -20,14 +20,14 @@ object PingPongByTomasz: TPingPongByTomasz
   object background: TShape
     Left = 0
     Top = 0
-    Width = 1004
-    Height = 534
+    Width = 969
+    Height = 428
     Align = alClient
     Brush.Color = clMoneyGreen
   end
   object ball: TImage
-    Left = 472
-    Top = 272
+    Left = 408
+    Top = 224
     Width = 32
     Height = 32
     AutoSize = True

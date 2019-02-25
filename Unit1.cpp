@@ -4,11 +4,18 @@
 #pragma hdrstop
 
 #include "Unit1.h"
-int x = -8;
-int y = -8;
+int x = -6;
+int y = -6;
 int playerOneScore = 0;
 int playerTwoScore = 0;
 int bounce = 0;
+
+void speedUp()
+{
+   x = x * 1.2;
+   y = y * 1.2;
+}
+
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
 #pragma resource "*.dfm"
@@ -39,16 +46,40 @@ void __fastcall TPingPongByTomasz::timer_ballTimer(TObject *Sender)
       playerOneScore++;
    }
    else if(ball->Top > playerOnePaddle->Top - ball->Height/2 &&
-           ball->Top + ball->Height < playerOnePaddle->Top + playerOnePaddle->Height - ball->Height/2 &&
-           ball->Left > playerOnePaddle->Left + playerOnePaddle->Width)
+           ball->Top + ball->Height < playerOnePaddle->Top + playerOnePaddle->Height + ball->Height/2 &&
+           ball->Left < playerOnePaddle->Left + playerOnePaddle->Width)
         {
-           if (x > 0) x = -x;
+           if (abs(x) != abs(y))
+           {
+              if (y < 0) x = y;
+              else x = -y;
+           }
+           if (ball->Top > playerOnePaddle->Top + playerOnePaddle->Height*0.35 - ball->Height/2 &&
+           ball->Top + ball->Height < playerOnePaddle->Top + playerOnePaddle->Height*0.70 + ball->Height/2)
+              x = x * 1.5;
+           if(x < 0)
+              x = -x;
+
+           bounce++;
+           if (bounce % 3 == 0 && bounce <= 15) speedUp();
         }
    else if(ball->Top > playerTwoPaddle->Top - ball->Height/2 &&
-           ball->Top + ball->Height < playerTwoPaddle->Top + playerTwoPaddle->Height - ball->Height/2 &&
+           ball->Top + ball->Height < playerTwoPaddle->Top + playerTwoPaddle->Height + ball->Height/2 &&
            ball->Left + ball->Width > playerTwoPaddle->Left)
         {
-           if (x > 0) x = -x;
+           if (abs(x) != abs(y))
+           {
+              if (y < 0) x = -y;
+              else x = y;
+           }
+           if (ball->Top > playerTwoPaddle->Top + playerTwoPaddle->Height*0.35 - ball->Height/2 &&
+           ball->Top + ball->Height < playerTwoPaddle->Top + playerTwoPaddle->Height*0.70 + ball->Height/2)
+              x = x * 1.5;
+           if(x > 0)
+              x = -x;
+
+           bounce++;
+           if (bounce % 3 == 0 && bounce <= 15) speedUp();
         }
 }
 //---------------------------------------------------------------------------

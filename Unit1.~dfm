@@ -26,8 +26,8 @@ object PingPongByTomasz: TPingPongByTomasz
     Brush.Color = clMoneyGreen
   end
   object ball: TImage
-    Left = 472
-    Top = 272
+    Left = 408
+    Top = 224
     Width = 32
     Height = 32
     AutoSize = True

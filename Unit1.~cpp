@@ -26,26 +26,26 @@ void __fastcall TPingPongByTomasz::timer_ballTimer(TObject *Sender)
 
    if(ball->Top <= background->Top) y = -y;
    if(ball->Top + ball->Height >= background->Height) y = -y;
-   if(ball->Left <= playerOnePaddle->Left-20)
+   if(ball->Left <= playerOnePaddle->Left)
    {
       timer_ball->Enabled = false;
       ball->Visible = false;
       playerTwoScore++;
    }
-   else if(ball->Left + ball->Width >= playerTwoPaddle->Left + playerTwoPaddle->Width+20)
+   else if(ball->Left + ball->Width >= playerTwoPaddle->Left + playerTwoPaddle->Width)
    {
       timer_ball->Enabled = false;
       ball->Visible = false;
       playerOneScore++;
    }
    else if(ball->Top > playerOnePaddle->Top - ball->Height/2 &&
-           ball->Top + ball->Height < playerOnePaddle->Top + playerOnePaddle->Height - ball->Height/2 &&
-           ball->Left > playerOnePaddle->Left + playerOnePaddle->Width)
+           ball->Top + ball->Height < playerOnePaddle->Top + playerOnePaddle->Height + ball->Height/2 &&
+           ball->Left < playerOnePaddle->Left + playerOnePaddle->Width)
         {
-           if (x > 0) x = -x;
+           if (x < 0) x = -x;
         }
    else if(ball->Top > playerTwoPaddle->Top - ball->Height/2 &&
-           ball->Top + ball->Height < playerTwoPaddle->Top + playerTwoPaddle->Height - ball->Height/2 &&
+           ball->Top + ball->Height < playerTwoPaddle->Top + playerTwoPaddle->Height + ball->Height/2 &&
            ball->Left + ball->Width > playerTwoPaddle->Left)
         {
            if (x > 0) x = -x;
