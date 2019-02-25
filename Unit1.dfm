@@ -1,8 +1,8 @@
 object PingPongByTomasz: TPingPongByTomasz
   Left = 192
   Top = 125
-  Width = 1020
-  Height = 573
+  Width = 1012
+  Height = 581
   Caption = 'PingPongByTomasz'
   Color = clBtnFace
   UseDockManager = True
@@ -13,21 +13,44 @@ object PingPongByTomasz: TPingPongByTomasz
   Font.Name = 'MS Sans Serif'
   Font.Style = []
   OldCreateOrder = False
+  OnCreate = FormCreate
   OnKeyDown = FormKeyDown
   OnKeyUp = FormKeyUp
+  DesignSize = (
+    996
+    542)
   PixelsPerInch = 96
   TextHeight = 13
   object background: TShape
     Left = 0
     Top = 0
-    Width = 1004
-    Height = 534
+    Width = 996
+    Height = 542
     Align = alClient
     Brush.Color = clMoneyGreen
   end
+  object newGameLabel: TLabel
+    Left = 240
+    Top = 64
+    Width = 497
+    Height = 97
+    Alignment = taCenter
+    Anchors = []
+    AutoSize = False
+    BiDiMode = bdLeftToRight
+    Caption = 'Zagrajmy w PingPonga!'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -40
+    Font.Name = 'MS Sans Serif'
+    Font.Style = [fsBold]
+    ParentBiDiMode = False
+    ParentFont = False
+    Layout = tlCenter
+  end
   object ball: TImage
-    Left = 472
-    Top = 272
+    Left = 496
+    Top = 280
     Width = 32
     Height = 32
     AutoSize = True
@@ -469,7 +492,109 @@ object PingPongByTomasz: TPingPongByTomasz
       4F4F4F4F4F4F4F4F4F4F4F4F4F00000000000000000000000000000000000000
       0000}
   end
+  object whoScored: TLabel
+    Left = 280
+    Top = 48
+    Width = 433
+    Height = 89
+    Alignment = taCenter
+    AutoSize = False
+    Caption = 'whoScored'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -20
+    Font.Name = 'MS Sans Serif'
+    Font.Style = [fsBold]
+    ParentFont = False
+    Layout = tlCenter
+    Visible = False
+  end
+  object score: TLabel
+    Left = 280
+    Top = 152
+    Width = 433
+    Height = 49
+    Alignment = taCenter
+    AutoSize = False
+    Caption = 'score'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -20
+    Font.Name = 'MS Sans Serif'
+    Font.Style = [fsBold]
+    ParentFont = False
+    Layout = tlCenter
+    Visible = False
+  end
+  object numberOfBounces: TLabel
+    Left = 336
+    Top = 216
+    Width = 321
+    Height = 49
+    Alignment = taCenter
+    AutoSize = False
+    Caption = 'numberOfBounces'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -20
+    Font.Name = 'MS Sans Serif'
+    Font.Style = [fsBold]
+    ParentFont = False
+    Layout = tlCenter
+    Visible = False
+  end
+  object newGameButton: TButton
+    Left = 320
+    Top = 376
+    Width = 329
+    Height = 57
+    Caption = 'Nowa gra'
+    DragCursor = crHandPoint
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -19
+    Font.Name = 'MS Sans Serif'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 0
+    OnClick = newGameButtonClick
+  end
+  object nextRound: TButton
+    Left = 280
+    Top = 296
+    Width = 433
+    Height = 65
+    Caption = 'Nast'#281'pna runda >'
+    DragCursor = crHandPoint
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clGreen
+    Font.Height = -19
+    Font.Name = 'MS Sans Serif'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 1
+    Visible = False
+    OnClick = nextRoundClick
+  end
+  object resetGame: TButton
+    Left = 280
+    Top = 376
+    Width = 433
+    Height = 65
+    Caption = 'Nowa gra'
+    DragCursor = crHandPoint
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -19
+    Font.Name = 'MS Sans Serif'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 2
+    Visible = False
+    OnClick = resetGameClick
+  end
   object timer_ball: TTimer
+    Enabled = False
     Interval = 15
     OnTimer = timer_ballTimer
     Left = 24
